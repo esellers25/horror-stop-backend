@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+    def show
+        render json: @user
+    end
+
     def create 
         user = User.new(user_params)
 
@@ -11,6 +15,7 @@ class UsersController < ApplicationController
         end 
     end 
 
+
     def login 
         user = User.find_by(username: params[:username])
         if user && user.authenticate(params[:password])
@@ -19,6 +24,17 @@ class UsersController < ApplicationController
             render json: {message: "wrong password"}
         end 
     end 
+
+    def update
+        @user.update(user_params)
+        render json: user
+    end
+
+    def destroy
+        @user.destroy
+        render json: {message: "User has been SENT TO HELL!!!"}
+    end
+
 
     private 
     
