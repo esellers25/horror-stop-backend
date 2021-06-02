@@ -4,6 +4,10 @@ class ReviewsController < ApplicationController
         render json: reviews
     end
 
+    def show
+        render json: @review
+    end
+
     def create
         @review = Review.new(review_params)
 
