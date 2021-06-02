@@ -22,12 +22,14 @@ ActiveRecord::Schema.define(version: 2021_06_01_012831) do
   end
 
   create_table "movies", force: :cascade do |t|
-    t.string "name"
-    t.string "img_url"
+    t.string "title"
+    t.string "poster_url"
     t.string "year"
     t.string "trailer_url"
     t.string "watch_providers"
-    t.string "category_id"
+    t.string "runtime"
+    t.text "summary"
+    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

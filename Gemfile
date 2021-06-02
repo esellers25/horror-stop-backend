@@ -42,3 +42,4 @@ gem 'active_model_serializers'
 gem 'jwt'
 
 gem 'rest-client'
+gem 'httparty'
