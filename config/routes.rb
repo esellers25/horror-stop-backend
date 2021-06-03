@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   resources :reviews, only: [:index, :show, :create, :update, :destroy]
   resources :categories, only: [:index]
+  resources :movies, only: [:index, :show]
 end

@@ -1,21 +1,22 @@
 class ReviewsController < ApplicationController
     def index
         @reviews = Review.all
-        render json: reviews
+        render json: @reviews
     end
 
     def show
+        @review = Review.find(params[:id])
         render json: @review
     end
 
     def create
         @review = Review.new(review_params)
-
+        
         if @review.valid?
             @review.save
             render json: @review
         else
-            render json:  {message :"NOT A REAL REVIEW YOU JERK"}
+            render json:  {message: "NOT A REAL REVIEW YOU JERK"}
         end
     end
 
@@ -25,6 +26,7 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
+        @review = Review.find(params[:id])
         @review.destroy
         render json: {message: "This review has been sent TO HELL!!!"}
     end
