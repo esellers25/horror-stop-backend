@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    # skip_before_action :logged_in, only: [:create, :login]
 
     def show
         render json: @user
