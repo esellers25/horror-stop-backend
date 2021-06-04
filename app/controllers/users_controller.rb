@@ -8,8 +8,8 @@ class UsersController < ApplicationController
     def create 
         @user = User.new(user_params)
 
-        if user.valid?
-            user.save 
+        if @user.valid?
+            @user.save 
             render json: @user 
         else 
             render json: {error: "Not able to create new user"}

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :users, only: [:create]
   post "/login", to: "users#login"
 
+  get "/movies/:id", to: "movies#movie_rating_average"
+
   resources :reviews, only: [:index, :show, :create, :update, :destroy]
   resources :categories, only: [:index]
   resources :movies, only: [:index, :show]

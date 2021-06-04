@@ -23,6 +23,7 @@ class ReviewsController < ApplicationController
     end
 
     def update
+        @review = Review.find(params[:id])
         @review.update(review_params)
         render json: @review
     end
@@ -33,6 +34,7 @@ class ReviewsController < ApplicationController
         render json: {message: "This review has been sent TO HELL!!!"}
     end
 
+   
     private
 
     def review_params
